@@ -13,7 +13,7 @@ def compare_cards():
     if player_sum <= 21 :
         pass
     else:
-        print "You Busted!"
+        print "\nYou Busted!"
 
 print "\nWelcome to Wild Cards!"
 name = raw_input("Give me your name:  ")
@@ -59,7 +59,7 @@ while not salad_dressing:
         new_card = deck.deal(1)
         for card in new_card:
             player_sum+=convert_card(card.value)
-            print new_card
+            print("Player's card: " + str(new_card))
         while dealer_sum < 18:
         # if dealer_sum < 21:
             new_card = deck.deal(1)
@@ -74,27 +74,32 @@ while not salad_dressing:
             new_card = deck.deal(1)
             for card in new_card:
                 dealer_sum+=convert_card(card.value)
-                # print new_card
-                print ("\nDealer sum is {}".format(dealer_sum))
+                print("Dealer's Card: " + str(new_card))
+                print("\nDealer sum is {}".format(dealer_sum))
 
 
+    print "\n Player Sum: "
+    print player_sum
+    print "\n Dealer Sum: "
+    print dealer_sum
 
     #Compare cards to dealers
     # compare_cards()
-    if player_sum >= 21:
+    if player_sum > 21:
         print "\nYOU LOSE"
-    if (player_sum <= dealer_sum):
+    elif (player_sum >= dealer_sum):
         print "\nYOU WIN"
-    else:
-        print "\nYOU LOSE"
+    elif dealer_sum > 21:
+        print "\nYOU WIN"
+    elif (dealer_sum > player_sum):
+        print "\n YOU LOSE"
 
 
 
-    print "\nTOTAL: "
-    print player_sum
 
-    #hit or stand option for player
-    #you busted!
 
-    again = raw_input("Do you want to play again?:  ")
+
+
+
+    again = raw_input("\nDo you want to play again?:  ")
     print("\nWelcome Back {}".format(name))
